@@ -64,14 +64,9 @@ contract Domains is ERC721URIStorage, Ownable {
 
         bytes memory metadataURI = abi.encodePacked(
             "{",
-            '"name": "',
-            _name,
-            '", ',
-            '"description" : ',
-            '"A domain on the Buddy Name Service", ',
-            '"image": "',
-            _svgImageToURI(finalSvg),
-            '"',
+                '"name": "', _name, '", ',
+                '"description" : ', '"A domain on the Buddy Name Service", ',
+                '"image": "', _svgImageToURI(finalSvg), '"',
             "}"
         );
         string memory json = Base64.encode(metadataURI);

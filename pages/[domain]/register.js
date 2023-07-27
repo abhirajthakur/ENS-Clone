@@ -22,10 +22,11 @@ const register = () => {
     functionName: "register",
     args: [domainName],
     value: price,
-    async onSuccess() {
+    async onSuccess(data) {
       await new Promise((r) => setTimeout(r, 30000));
       alert("Domain registered successfully!");
       router.replace(`/${domainName}`);
+      console.log(`https://mumbai.polygonscan.com/tx/${data}`);
     },
     onError(err) {
       console.log("Error:", err);
