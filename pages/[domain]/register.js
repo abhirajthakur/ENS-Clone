@@ -25,8 +25,8 @@ const register = () => {
     async onSuccess(data) {
       await new Promise((r) => setTimeout(r, 30000));
       alert("Domain registered successfully!");
+      console.log(`https://mumbai.polygonscan.com/tx/${data.hash}`);
       router.replace(`/${domainName}`);
-      console.log(`https://mumbai.polygonscan.com/tx/${data}`);
     },
     onError(err) {
       console.log("Error:", err);
