@@ -22,7 +22,8 @@ const register = () => {
     functionName: "register",
     args: [domainName],
     value: price,
-    onSuccess() {
+    async onSuccess() {
+      await new Promise((r) => setTimeout(r, 30000));
       alert("Domain registered successfully!");
       router.replace(`/${domainName}`);
     },
