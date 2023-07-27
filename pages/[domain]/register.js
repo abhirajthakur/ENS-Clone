@@ -22,8 +22,7 @@ const register = () => {
     functionName: "register",
     args: [domainName],
     value: price,
-    onSuccess(data) {
-      console.log(`https://mumbai.polygonscan.com/tx/${data}`);
+    onSuccess() {
       alert("Domain registered successfully!");
       router.replace(`/${domainName}`);
     },

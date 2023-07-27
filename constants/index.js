@@ -17,12 +17,22 @@ const abi = [
   },
   {
     "inputs": [],
+    "name": "Domains__InvalidName",
+    "type": "error"
+  },
+  {
+    "inputs": [],
     "name": "Domains__NotEnoughMoney",
     "type": "error"
   },
   {
     "inputs": [],
     "name": "Domains__StringCannotBeEmpty",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "Domains__TranserFailed",
     "type": "error"
   },
   {
@@ -113,6 +123,25 @@ const abi = [
       {
         "indexed": true,
         "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
         "name": "from",
         "type": "address"
       },
@@ -173,7 +202,7 @@ const abi = [
     "inputs": [
       {
         "internalType": "string",
-        "name": "",
+        "name": "domainName",
         "type": "string"
       }
     ],
@@ -181,7 +210,7 @@ const abi = [
     "outputs": [
       {
         "internalType": "address",
-        "name": "",
+        "name": "domainOwner",
         "type": "address"
       }
     ],
@@ -264,6 +293,19 @@ const abi = [
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -312,6 +354,13 @@ const abi = [
     "name": "register",
     "outputs": [],
     "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -469,8 +518,28 @@ const abi = [
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "withdraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   }
 ];
-export const contractAddress = "0x1B39C28506594271F65701baECd4e0e7E3470161"; // Polygon Mumbai
+const contractAddress = "0x6c3FF820cd58bEaC96D6b47d0bf32bb3EFB40233"; // Polygon Mumbai
 
 module.exports = { abi, contractAddress };

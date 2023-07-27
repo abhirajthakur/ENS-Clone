@@ -2,7 +2,7 @@ const { run, ethers } = require("hardhat");
 
 async function main() {
   const [deployer] = await ethers.getSigners();
-  const contractAddress = "0x1B39C28506594271F65701baECd4e0e7E3470161";
+  const contractAddress = "0x6c3FF820cd58bEaC96D6b47d0bf32bb3EFB40233";
   console.log("Verifying contract with deployer:", deployer.address);
 
   try {

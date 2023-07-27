@@ -3,7 +3,7 @@ import { abi, contractAddress } from "@/constants";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useContractRead } from "wagmi";
 
 const index = () => {
@@ -11,7 +11,7 @@ const index = () => {
   const domainName = router.query.domain;
   const [address, setAddress] = useState("");
 
-  useContractRead({
+  const { data: owner } = useContractRead({
     address: contractAddress,
     abi: abi,
     functionName: "getDomainAddress",
@@ -20,6 +20,10 @@ const index = () => {
       setAddress(domainOwner);
     },
   });
+
+  useEffect(() => {
+    setAddress(owner);
+  }, [owner]);
 
   return (
     <main
@@ -63,8 +67,6 @@ const index = () => {
 
                 <p className="text-[#262626] text-base font-medium">
                   {address.slice(0, 6)}...{address.slice(-4)}
-                  {/* {"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266".slice(0, 6)}... */}
-                  {/* {"0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266".slice(-4)} */}
                 </p>
               </div>
             </div>
