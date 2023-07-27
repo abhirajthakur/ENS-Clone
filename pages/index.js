@@ -54,7 +54,7 @@ export default function Home() {
                   type="search"
                   placeholder="Search for a name"
                   spellCheck="false"
-                  maxLength="25"
+                  maxLength="15"
                   className="placeholder:font-bold w-full h-full text-[#262626] focus:border-[#cde1f4] outline-none text-[1.625rem] pr-4 pl-6 font-medium bg-transparent leading-[2.125rem]"
                   onChange={(e) => handleInputChange(e)}
                 />
